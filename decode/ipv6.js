@@ -40,7 +40,7 @@ IPv6.prototype.decode = function (raw_packet, offset) {
     if(ProtocolDecoder === undefined) {
         this.protocolName = "Unknown";
     } else {
-        this.payload = new ProtocolDecoder().decode(raw_packet, offset, raw_packet.length - 40);
+        this.payload = new ProtocolDecoder().decode(raw_packet, offset, raw_packet.length - offset);
     }
 
     if(this.emitter) { this.emitter.emit("ipv6", this); }
